@@ -169,7 +169,7 @@ m = 90
         3 - Unary Minus -> - and + before we assign it to a variable it will convert this to negative or positive
         4 - Relational (we compare two identifiers) -> >, <, ==, !=, >=, <=
         5 - Logical -> and, or, not
-        6 - Boolean ->
+        6 - Boolean -> True, False
 
         note : = is used to assign a value
                == is used to compare two values
