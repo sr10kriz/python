@@ -1,11 +1,13 @@
+""" this three quotation indicates multi-line docstring comments """
+# this # indicates single line comments
 """ 1 - Varibles & Memory Management in py """
 
-print('Hi we are gonna rock!')
+print("Hi we are gonna rock!")
 a = 1000
-b = 2000 
+b = 2000
 c = a + b
 
-id(c) 
+id(c)  # id is a identity of the variable
 """ here id() returns a unique id for the variable, which means its returned the memory location of a variable, each variable has a unique memory location unless its has a same value
 i.e x = 1000, a = 1000 => here the both variables have a same memory location, python will store them in a  container in a efficient way, whenever the variable changes to different value then only its creates new memory location unless the location remains the same... """
 print(c)
@@ -44,7 +46,7 @@ i = 40.90
 print(type(i))
 
 """ complex """
-j = complex(4,5>12)
+j = complex(4, 5 > 12)
 """ it accepts two argument, 1st is real value, 2nd is imaginary value. Note: if you pass string as a 1st argument then the 2nd argument cant be accepted, it provides this error => TypeError: complex() can't take second arg if first is a string, it accepts int, float, string as well as boolean as an argument """
 print(j)
 print(type(j))
@@ -58,13 +60,13 @@ print(type(k))
 """ 3 - Sequences & their types """
 
 """ string """
-my_name = 'Messi'
+my_name = "Messi"
 print(my_name)
 print(type(my_name))
 
 """ List - ordered, mutable, allow duplicates"""
 """ List are arrays in python, but it stores different types of datatypes, any values i.e ['str', bool, 1, 0.5], Note: list can be modified """
-my_list = ['Messi', 35, 5.5, "Argentenian", 10]
+my_list = ["Messi", 35, 5.5, "Argentenian", 10]
 print(my_list)
 print(type(my_list))
 
@@ -80,8 +82,8 @@ print(my_list)
 """ extend - to add another list elements in current list - its not only from another list any iterable object like tuples, sets, dictionaries/mapping """
 
 """ Tuples - ordered, immutable, allow duplicates """
-""" Tuples are very similar to List, the only difference is the paranthesis, we use tuple like this ('Messi',35,5.5,'Argentenian',10,'GOAT') , important Note: tuples are immutable while lists are mutable, tuples cant be modified after once created in python """
-my_tuple = ('Pedri',21,5.8,'Maestro',8)
+""" Tuples are very similar to List, the only difference is the paranthesis, we use tuple like this ('Messi',35,5.5,'Argentenian',10,'GOAT') , important Note: tuples are immutable while lists are mutable, tuples cant be modified after once created in python, usually tuples are faster than Lists """
+my_tuple = ("Pedri", 21, 5.8, "Maestro", 8)
 print(my_tuple)
 print(type(my_tuple))
 
@@ -92,7 +94,7 @@ print(my_tuple[3])
 """ Range """
 """ range is often used as loops, if you want to print some range this to this kind of stuff """
 """ syntax of range range(start,stop,step) - it accepts three parameters - 1st and 3rd params are optional, 2nd is mandatory - default value of 1st param is 0, default of 3rd param is 1 """
-my_range = range(1,10,3)
+my_range = range(1, 10, 3)
 print(my_range)
 print(type(my_range))
 
@@ -105,7 +107,7 @@ print(my_list_range)
 print(type(my_list_range))
 
 """ u can also directly convert range to a list """
-my_list_range_dir = list(range(10,25,2))
+my_list_range_dir = list(range(10, 25, 2))
 print(my_list_range_dir)
 
 """ 4 - Sets - unordered, immutable, doesn't allow duplicates """
@@ -132,14 +134,14 @@ con_set_li = list({1, 2, 3, 4, 500, 20, 40})
 print(con_set_li)
 print(type(con_set_li))
 
-con_set_tup = tuple({1, 5, 10 , 15, 20, 300, 30})
+con_set_tup = tuple({1, 5, 10, 15, 20, 300, 30})
 print(con_set_tup)
 print(type(con_set_tup))
 
 """ Mapping / Dictionaries - ordered, mutable, doesn't allow duplicates """
 """ Dictianaries are similar to objects, in other words u can imagine a real dictonary, key value pairs like Why:why are you late? - this is key value pair - why is term key, then the value and inportant note dictionaries can't allow duplicates """
 """ syntax - {10:'Messi',7:'Ronaldo'} """
-my_map = {10: 'Messi', 7: 'Ronaldo', 8: 'Iniesta'}
+my_map = {10: "Messi", 7: "Ronaldo", 8: "Iniesta"}
 print(my_map)
 print(type(my_map))
 
@@ -155,7 +157,7 @@ print(my_map[10])
 # able to convert set to a tuple or list and also vice versa, able to convert tuple or list to set
 
 """ 3 - Literals and Identifiers """
-m = 90 
+m = 90
 """ here m is a Identifier, 90 is a Literal - in nnormal terms m is variable we defined, 90 is a value we assigned to that variable and = is a operator assigning literals to identifiers """
 """ In Literals we split into three - numeric - (int,float,decimal,octal,hexadecimal,complex), boolean, string """
 """ we called it as a integer literal that - 90 """
@@ -184,22 +186,22 @@ n = 30
 print(-n)
 print(n)
 o = -20
-print(-o) 
+print(-o)
 """ in the end it gives the result of positive literal, which means - into - + thats y we get the positive result, same applicable in vice versa """
 
 
 """ 6 - Escape Characters """
-short_string = 'messi'
-long_string = 'messi is the greatest\
+short_string = "messi"
+long_string = "messi is the greatest\
  of all\
  time\
  simply mentioned as\
- GOAT'
+ GOAT"
 print(long_string)
 
 """ backslash - \ is to mentioned that the string is not end, its continued i.e 'messi\'s left foot' -  """
 
-long_string_n = 'messi \n Greatest of all Time \n GOAT'
+long_string_n = "messi \n Greatest of all Time \n GOAT"
 print(long_string_n)
 
 """ \n - to take a new line """
@@ -211,7 +213,7 @@ print(path)
 odejs """
 """ i get the above result - coz \n in escape characters is to take a new line thats y we got the result - to prevent this behaviour we use double backslash \\ - this \\ is to convert this to \ which means - \\ = \ """
 
-path_n = 'c:\downloads\app\\nodejs'
+path_n = "c:\downloads\app\\nodejs"
 print(path_n)
 """ now i got the expected one - c:\downloadspp\nodejs """
 
@@ -220,99 +222,235 @@ print(path_n)
 
 """ 7 - Input & Output Statements """
 """ Output Statements """
-print(16/4)
+print(16 / 4)
 num1 = num2 = 100
-print(num1*num2,'is the multiplication of x and y')
+print(num1 * num2, "is the multiplication of x and y")
 # the above we got 10000 is the multiplication of x and y - but what we expect is 10000 is the multiplication of 100 and 100 - how we do that in python - need to use format()
-print('{0} is the multiplication of {1} and {2}'.format(num1*num2,num1,num2))
+print("{0} is the multiplication of {1} and {2}".format(num1 * num2, num1, num2))
 """ now wwe got the xpected result - 10000 is the multiplication of 100 and 100 """
 """ there are so many formating options out there """
 """ format() method accepts - any datatype as a argument """
-print('{string1} is simply mentioned as {string2} - {string3}'.format(string1 = 'Messi',string2 = 'Greatest of all Time',string3 = 'GOAT'))
+print(
+    "{string1} is simply mentioned as {string2} - {string3}".format(
+        string1="Messi", string2="Greatest of all Time", string3="GOAT"
+    )
+)
 
 """ Input Statements """
-my_first_q = input('Provide your name :')
-my_second_q = int(input('provide your age :'))
+my_first_q = input("Provide your name :")
+my_second_q = int(input("provide your age :"))
 # the input() function returns a string - we need convert to integer for age - this conversion we called as type casting i.e see above line. type casting - type casting means convert one datatype to another datatype
-print('Hi {0}, you age is {1}'.format(my_first_q,my_second_q))
+print("Hi {0}, you age is {1}".format(my_first_q, my_second_q))
 
-messi_bio = {'name':input('Provide your name: '),'age':int(input('Provide your age: ')),'callsign':input('Provide me your callsign: ')}
-print('Hi {0}, your age is {1}, your callsign is {2}'.format(messi_bio['name'],messi_bio['age'],messi_bio['callsign']))
+messi_bio = {
+    "name": input("Provide your name: "),
+    "age": int(input("Provide your age: ")),
+    "callsign": input("Provide me your callsign: "),
+}
+print(
+    "Hi {0}, your age is {1}, your callsign is {2}".format(
+        messi_bio["name"], messi_bio["age"], messi_bio["callsign"]
+    )
+)
 
 """ 8 Built-in functions & modules need to check in documentation """
 
 """ 9 if...elif...else """
 jerseyNum = 10
 if jerseyNum == 10:
-    print('Lionel\'s')
+    print("Lionel's")
 else:
-    print('Somenone\'s')
-    
-print('the above if...else got closed')
+    print("Somenone's")
 
-print('the below if...elif...else got started')
+print("the above if...else got closed")
+
+print("the below if...elif...else got started")
 
 colorPat = "White"
 if colorPat == "Red":
-    print(f'Your preferred color is {colorPat}')
+    print("Your preferred color is {colorPat}")
 elif colorPat == "White":
-    print(f'Your preferred color is {colorPat}')
+    print("Your preferred color is {colorPat}")
 else:
-    print('kindly chose color patterns')
+    print("kindly chose color patterns")
 
-isYourAge = int(input('Provide your age: '))
-haveVoterId = input('Do you VoterId say YES or NO: ')
-if isYourAge >=18 and isYourAge <=25:
-    if haveVoterId == 'yes':
-        print('Approved, and Eligible for Voting')
+isYourAge = int(input("Provide your age: "))
+haveVoterId = input("Do you VoterId say YES or NO: ")
+if isYourAge >= 18 and isYourAge <= 25:
+    if haveVoterId == "yes":
+        print("Approved, and Eligible for Voting")
     else:
-        print('Hold, Get details to provide VoterId')
-elif isYourAge >=25 and isYourAge <=60:
-    if haveVoterId == 'yes':
-        print('Mid Citizens Eligible Candidate')
+        print("Hold, Get details to provide VoterId")
+elif isYourAge >= 25 and isYourAge <= 60:
+    if haveVoterId == "yes":
+        print("Mid Citizens Eligible Candidate")
     else:
-        print('Mid Citizens')
+        print("Mid Citizens")
 elif isYourAge >= 60:
-    if haveVoterId == 'yes':
-        print('Super Senior Eligible Citizens')
+    if haveVoterId == "yes":
+        print("Super Senior Eligible Citizens")
     else:
-        print('Super Senior Citizens')
-elif isYourAge <=18:
-    print('Your are not eligible for Voting')
+        print("Super Senior Citizens")
+elif isYourAge <= 18:
+    print("Your are not eligible for Voting")
 else:
-    print('Retake assesment')
-    
-    
+    print("Retake assesment")
+
+
 """ Loops """
 
-# While 
+# While
 startP = 10000
 while startP < 10010:
-    print('loop of --->',startP)
-    startP = startP + 1
+    print("loop of --->", startP)
+    startP += 1
 else:
-    print('End')
+    print("End")
 # in python a else block also possible, whether the condition fails then fall under else block
 
 # in keyword in python - to check some values are available in some variable i.e below
-A = {1,2,3,4,5}
+A = {1, 2, 3, 4, 5}
 print(5 in A)
 
 # For - we can list, tuples, range, dictionary in for loops - any iterable object
 for i in A:
-    print(i) 
-    
-forDict = {10:'Messi',8:'Iniesta'}
+    print(i)
+
+forDict = {10: "Messi", 8: "Iniesta"}
 # if you only want keys from dictionary then,
 for x in forDict:
-    print(x) # by default the for loops takes only keys from dictionary - also get forDict.keys() method to get the keys from dictionary
-    
+    print(
+        x
+    )  # by default the for loops takes only keys from dictionary - also get forDict.keys() method to get the keys from dictionary
+
 # if you only want values from dictionary then,
 for x in forDict.values():
     print(x)
 
 # if you only want both keys and values from dictionary then,
-for x,y in forDict.items():
-    print(x ," ",y)
+for x, y in forDict.items():
+    print(x, " ", y)
 else:
-    print('End')
+    print("End")
+
+""" Continue & Break statements """
+B = [0, 1, 2, 3, 4, 5]
+for x in B:
+    if x == 2:
+        break  # if we use break here, it will end the iteration of remaining elements, get out of the loop
+    print(x)
+print("End")
+
+C = (100, 101, 102, 103, 104, 105)
+for y in C:
+    if y == 104:
+        continue  # if we use continue, it will skip current iteration of element and remaining code, it will directly jump to the next element for iteration
+    print(y)
+print("End")
+
+""" Strings and its methods """
+my_str_l = "messi"
+my_str_u = "MESSI"  # case-sensitive
+print(id(my_str_l))
+print(id(my_str_u))
+# returns two different memory location
+
+print(my_str_l.upper())
+print(my_str_u.lower())
+print(my_str_l[3])
+print(
+    my_str_u[4]
+)  # if we use like, its a indexing of particular string, but what if if i want a substring, see below
+
+subs_s = "Good Evening"  # here we want the good only not evening, how we do that, its done by slicing in python, see below to get the substring
+print(
+    subs_s[0:4]
+)  # it is slicing, which index position to start the search, which index position to end, important note the end index position stopped at which position we given as arguement, means the stop at 4th index position and the 4th index element not included
+
+str_without_strip = "          Hell Yeah                 "
+print(str_without_strip)
+print(
+    str_without_strip.strip()
+)  # the strip() method is to remove the whitespace from the beginning and at the end of the string
+
+# lstrip() - while lstrip() removes the whitespaces only ffrom left side of the string
+# rstrip() - while rstrip() removes the whitespaces only ffrom right side of the string
+# islower() - to check whether the given string is lowercase - even a single character in uppercase its returns false
+# isupper() - to check whether the given string is uppercase - even a single character in lowercase its returns false
+# replace() - to replace characters as well as sequence of characters, i.e Hello - replace("l","i") - it replaces all the l characters in string and replaces it with i
+# split() - to split a string based on some characters, this method always returns a list
+
+print(subs_s.replace("Evening", "Boy"))
+
+sp_str = "hukum-tiger-ka-hukum"
+print(sp_str.split("-"))
+print(type(sp_str.split("-")))
+
+""" here one additional funny thing """
+print(sp_str * 10)  # it will print the string * 10
+
+
+""" List and its methods """
+xList = ["Messi", 10, "GOAT", 10.00]
+xList.insert(4, "Ronaldo")
+xList.insert(5, "Ronaldo")
+print(xList)
+
+xList.remove(
+    "Ronaldo"
+)  # it will remove the specified element from the list, if the list has 2 Ronaldo then the lease index position element got the removed and then the remaining Ronaldo are still available in the List
+print(xList)
+
+# if you want to remove the last element of a list you can use pop method
+xList.pop()  # we dont need to mention anything, it always removes the last element of a List
+print(xList)
+
+# if you don't want to delete the list, just want to clear the List use xList.clear() - to clear the List, after List cleared if you print the list you got the empty list
+xList.clear()
+
+# if you want to delete the entire List
+del xList  # it delete the entire list and also clear the List in memory location also and not even present in our garbage memory
+
+""" sort() method in List ASC to DESC - sort is only applicable if a List have same datatype, not applicable for mixed datatype List, i.e """
+sorListNum = [1, 5, 0, 3, 6, 2, 4]
+sorListNum.sort()
+print(sorListNum)
+sorListAlp = ["a", "c", "d", "b", "e", "g", "f"]
+sorListAlp.sort()
+print(sorListAlp)
+
+""" reverse() method in List DESC to ASC """
+sorListNum.reverse()
+print(sorListNum)
+sorListAlp.reverse()
+print(sorListAlp)
+
+""" append() to add element at the end of the list """
+""" len() to return the length of a given List - length means how many elements present in that list, this method mostly available all the datatypes """
+""" count() to check whether the given argument is how many times occured in the List and this method also available for Tuples """
+print(len(sorListNum))
+print(
+    sorListNum.count(2)
+)  # checks and returns the count, the 2 argument/element is how many times occured in the list
+
+""" Tuples and its methods """
+""" count() to check whether the given argument is how many times occured in the Tuple """
+""" len() to check the length of the Tuple"""
+""" max() to get the max element in a tuple """
+""" min() to get the min element in a tuple """
+""" del(tuple_name) to delete the tuple """
+
+""" important note: we can't modify tuples, but we can concate tuples (one tuple with another tuple) - see below """
+tup1, tup2 = (100, 200), (300, 400)
+tup3 = tup1 + tup2
+print(tup3)
+""" here i assign my tup3 to tup1 is the other way to around to modify tuple """
+tup1 = tup3
+print(tup1)
+
+""" if sometimes tuple have a single element - to denote/mention its a tuple we should do like that - see below """
+test_tup = (
+    "Chaos",
+)  # comma in that tuple denotes its tuple, if we didn't use that comma its difficult to identity what datatypes that is ?, putting that comma in the end it doesn't affect the code behaviour
+test_tupp = ("Chaos",) * 5
+print(test_tupp)  # it prints the element of a tuple 5times
