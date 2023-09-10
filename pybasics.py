@@ -110,7 +110,7 @@ print(type(my_list_range))
 my_list_range_dir = list(range(10, 25, 2))
 print(my_list_range_dir)
 
-""" 4 - Sets - unordered, immutable, doesn't allow duplicates """
+""" 4 - Sets - unordered, mutable, doesn't allow duplicates """
 """ sets is a unordered collection of elements, syntax {1, 20, 23, 232} """
 my_set = {1, 5, 0, 90, 456}
 print(my_set)
@@ -213,7 +213,7 @@ print(path)
 odejs """
 """ i get the above result - coz \n in escape characters is to take a new line thats y we got the result - to prevent this behaviour we use double backslash \\ - this \\ is to convert this to \ which means - \\ = \ """
 
-path_n = "c:\downloads\app\\nodejs"
+path_n = "c:\downloads\\app\\nodejs"
 print(path_n)
 """ now i got the expected one - c:\downloadspp\nodejs """
 
@@ -398,7 +398,7 @@ print(xList)
 
 xList.remove(
     "Ronaldo"
-)  # it will remove the specified element from the list, if the list has 2 Ronaldo then the lease index position element got the removed and then the remaining Ronaldo are still available in the List
+)  # it will remove the specified element from the list, if the list has 2 Ronaldo then the least index position element got the removed and then the remaining Ronaldo are still available in the List
 print(xList)
 
 # if you want to remove the last element of a list you can use pop method
@@ -454,3 +454,303 @@ test_tup = (
 )  # comma in that tuple denotes its tuple, if we didn't use that comma its difficult to identity what datatypes that is ?, putting that comma in the end it doesn't affect the code behaviour
 test_tupp = ("Chaos",) * 5
 print(test_tupp)  # it prints the element of a tuple 5times
+
+""" Dictionaries and its methods """
+new_dict = {
+    "name": "messi",
+    "age": 35,
+    "callsign": "god",
+    ("spouse", "children1"): ("antonela", "thiagomessi"),
+}
+
+print(new_dict[("spouse", "children1")])
+(print(new_dict.get("callsign")))  # to access particular value of a dictinary key
+
+n_d = {
+    "Barcelona": {
+        "gk": "Mats",
+        "lb": "balde",
+        "cb1": "Araujo",
+        "cb2": "kounde",
+        "rb": "cancelo",
+        "dm": "oriol",
+        "rm": "gundo",
+        "lm": "dejong",
+        "lwf": "ferran",
+        "amf": "pedri",
+        "cf": "lewa",
+    }
+}
+print(n_d["Barcelona"]["amf"])
+print(type(n_d))
+
+n_d["Barcelona"]["skipper"] = "messi"
+print(n_d)
+print(len(n_d["Barcelona"]))
+
+# pop() is usually to remove element from end of a iterable object
+n_d["Barcelona"].pop("dm")
+print(n_d)
+
+# clear() to cleaar the dictianry, truncate
+# del n_d entirely delete the dictinary from memory location as well as garbage collector, here after not able the acces the n_d dictionary
+# keys() - to access ony dictionaries keys()
+# values() - to access ony dictionaries values()
+# items() - to access ony dictionaries items()
+# update() - to  update the values using keys in dictionary
+n_d["Barcelona"].update({"skipper": "Lionel Messi"})
+print(n_d)
+
+# uppdate ok, then how we overwritten the dictionary see below
+n_d["Barcelona"]["amf"] = "PedriGonzalez"
+print(n_d)
+
+# Indexing, Negative Indexing, Slicing
+qwer = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+print(qwer[0])  # -> indexing to get the values form a list
+
+# Slicing with positive indexing
+print(
+    qwer[0:3]
+)  # -> slicing to get the values from 0th index position to 3rd index position, which means the 3rd index position not include, we got the result of [0,1,2] - if we use third argument then it willl be step i.e qwer[0:3:1] - the default value of third argument is 1
+print(
+    qwer[5:]
+)  # -> use like this it start the search from 5th index position, till the last index position, the 5th index position will be included
+print(
+    qwer[:5]
+)  # if we use like this, it start the search from 0th index position (default), to the given index position
+print(
+    qwer[:]
+)  # this will get the entire elements from a list, start, end, step all are gonna take defualt arguments, end argument is optional
+print(qwer[::2])  # with step
+print(qwer[::3])  # with step
+
+# Slicing with Negative Indexing
+# take MESSI as eg
+
+""" M  E  S  S  I  I """
+"""-6 -5 -4 -3 -2 -1 """
+# the above is the negative indexing looks like, its starts invertly from last with -1 as 1st index position, if we want reverse the result see below..
+og = "MESSII"
+print(
+    og[::-1]
+)  # it will start the position from -1, and it will reverse the given string
+print(
+    og[-6:-1:]
+)  # this will start the search from -6th index position to the -1st index position
+print(og[:-1])
+print(og[-6:])
+
+print(og[0])  # positive indexing
+print(og[-6])  # negative indexing
+# both return the same result
+
+print(og[3::-1])  # will get the result in reverse order
+
+
+# Functions are to do a specific task whenever is needed, Functions are divided into two 1st one is Built-in-Functions like print(), input(), id() etc, and the 2nd one is User-defined-Functions - custom functions created by us.
+# syntax -> def function_name (param1,param2): # inside function block with indendation
+def call_now(num1, num2):
+    return num1 + num2
+
+
+print(call_now(1, 2))
+
+
+# positional arguments
+def posA(param1, param2):
+    print("1kg of {0} Rs.{1}.00".format(param1, param2))
+
+
+posA("Tomato", 100)
+
+
+# keyword arguments
+def keyA(item, price):
+    veggies = {"vegetable": {item, price}}
+    print(veggies["vegetable"])
+
+
+keyA(item="Beetroot", price=30)
+
+
+# default argument - in default arguments if we pass arguments then it will take the proivded value, else if we dont pass value it will take the default argument as a value to the particular parameter
+def defA(item, price=20):
+    print("item", item)
+    print("value", price)
+
+
+defA(item="Carrot", price=25)
+
+
+# variable length arguments
+def varL(
+    name, age, *skills
+):  # if we use asterick before the parameter, it tells the python interpreter - 'that particular param contains/has/able to accepts multiple values, the multiple value returned from function is tuples - remember its only for last arguments'
+    print("name", name)
+    print("age", age)
+    print("skills", skills)
+
+
+varL("Messi", 23, "Python", "Javascript", "React", "Redux")
+
+
+def varL2(
+    name, age, **skills
+):  # if we use double astericks, then it will accepts mulitple keywords, this ttells the python interpreter that the particular parameter contain multiple keywords - note it will return as a dictionary(key:value pair) not as a tuple
+    print("name", name)
+    print("age", age)
+    print("skills", skills)
+    for x, y in skills.items():
+        print(x, y)
+
+
+varL2(
+    "Messi",
+    23,
+    backend="Python",
+    frontend="Javascript",
+    frontend_library="React",
+    frontend_library_package="Redux",
+)
+
+# Global Variables & Local Variables
+# global variables are accessible anywhere in the file i.e see below...
+# this g_v variable can be accessible anywhere during the compilation
+g_v = 10
+
+
+# local variables are accessible only within the specific limit, i.e
+def locV():
+    global var_t1
+    var_t1 = 10
+    var_t2 = 20
+
+
+locV()
+
+# the above var_t1 and var_t2 are local variables only accessible inside the function, if i try to print that variables outside of the function then it will throw a error only undefined variables
+
+# one more thing if you want access var_t1 globally - we need to use a global keyword on that - see above function.
+
+print(g_v)
+print(var_t1)
+# print(var_t2)  - ameError: name 'var_t2' is not defined. Did you mean: 'var_t1'?
+
+
+""" OOPS - Object Oriented Programming System """
+
+# Class - Blueprint or structure plan
+# Object - A member following same structure of Class
+# Encapsulation - to encapsulate data and methods together
+# Abstraction - Only give neccessary details to the user, hiding background operations to the external world
+# Inheritance - we can inherit classes from base class, which means we can able to re-use code from base class to intermediate class to derived class
+# Polymorphism - poly- many, morphos - forms, Polymorphism is the ability of an object to take on many forms
+
+
+""" Class - in class we have attributes and methods """
+# all attributes will be out variables
+# all methods will be our functions/actions - note: whenever we use functions/actions in our class we denoted as methods
+
+
+class Car:
+    def __init__(self, carName, carColor, carMaxspeed):
+        self.name = carName
+        self.color = carColor
+        self.maxspeed = carMaxspeed
+        print("hit initialization __init__ method")
+
+    def getCar(self):
+        print(
+            "The car name is {0} and my car color is {1} with the maxspeed of {2}".format(
+                self.name, self.color, self.maxspeed
+            )
+        )
+
+
+suzukiDesire = Car("Desire", "Purple", 300)  # this suzukiDesire is a instance of class
+print(
+    "The car name is {0} and my car color is {1} with the maxspeed of {2}".format(
+        suzukiDesire.name, suzukiDesire.color, suzukiDesire.maxspeed
+    )
+)
+suzukiDesire.getCar()
+
+suzukiCiaz = Car("Ciaz", "White", 400)  # this suzukiDesire is a instance of class
+print(
+    "The car name is {0} and my car color is {1} with the maxspeed of {2}".format(
+        suzukiCiaz.name, suzukiCiaz.color, suzukiCiaz.maxspeed
+    )
+)
+suzukiCiaz.getCar()
+
+""" now let learn about __init__ and self """
+# __init__() - init function is called a constructor or initializer and is automatically called when you create a instance of class, its used to initialize the attributes/variables
+# whenever i create a instance of class that is object, it will automatically first call the __init__() method from a class which means initialization method. example see below
+
+suzukiAlto = Car("Alto", "Black", 150)
+suzukiCelerio = Car("Celerio", "Red", 180)
+
+# self is a variable that refers to current class instance
+# whenever we create a instance for the class Car, a separate memory block is allocated on the heap, the memory location by default store in this self variable - here self refers to our instances which means objects memory location
+# Constructor - is a special type of function/method which is used to initialize the instance members of the class.
+# __init__() is a constructor method
+
+print(id(Car))
+print(id(suzukiDesire))
+print(id(suzukiCiaz))
+print(id(suzukiAlto))
+print(id(suzukiCelerio))
+
+
+class Student:
+    def __init__(self, stuRollno, stuName, stuAge, stuGrade, stuGender):
+        self.rollno = stuRollno
+        self.name = stuName
+        self.age = stuAge
+        self.grade = stuGrade
+        self.gender = stuGender
+        self.standard = "12th A"
+
+    def getStuPosition(self):
+        print(
+            "{0},{1},{2},{3},{4},{5}".format(
+                self.rollno,
+                self.name,
+                self.age,
+                self.grade,
+                self.gender,
+                self.standard,
+            )
+        )
+        students = {
+            self.rollno: {
+                "Name": self.name,
+                "Age": self.age,
+                "Grade": self.grade,
+                "Gender": self.gender,
+                "Standard": self.standard,
+            }
+        }
+        print(students)
+
+
+studentOne = Student(
+    int(input("Student Roll no: ")),
+    input("Student Name: "),
+    int(input("Student Age: ")),
+    input("Student Grade: "),
+    input("Student Gender: "),
+)
+studentOne.getStuPosition()
+
+studentTwo = Student(
+    int(input("Student Roll no: ")),
+    input("Student Name: "),
+    int(input("Student Age: ")),
+    input("Student Grade: "),
+    input("Student Gender: "),
+)
+studentTwo.getStuPosition()
+
+# IMPORTANT note: a class have only one constructor function which means one __init__() method, if we use multiple then it will take last __init__() method only, the remaining methods are useless!
