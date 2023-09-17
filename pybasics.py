@@ -817,10 +817,16 @@ testIt.public_method()
 """ Inheritance - whenever we require same/similar functionality for a class's attributes/methods to another class we inherit a derived class from a base class with all the base class features means base class's attributes/methods
 real example: GrandFather -> Father -> Me -> MySon = your father acquire some attributes/behaviours from your grandparents, then you  acquire some attributes/methods from your parents, then yourson acquire some behaviours from you
 in programming terms see below 
-GrandFather - BaseClass/SuperClass
+GrandFather - BaseClass/SuperClass/ParentClass
 Father - DerivedClass/SubClass/ChildClass (Derived From GrandFather)
 Me - DerivedClass/SubClass/ChildClass (Derived From Father - means Father is a base class of Me)
 MySon - DerivedClass/SubClass/ChildClass (Derived From Me - means Me is a base class of MySon)
+
+IMPORTANT NOTEE : we inherit a child class from a parent class if only that the (is a) relationships is applicable - which means here see some eg's - 
+(is a) - its a rule in inheritance
+1 - Square (is a) Polygon => we able to inherit polygon class to square class
+2 - Traingle (is a) Polygon => we able to inherit polygon class to triangle class
+3 - Circle (is not a) Polygon => we not able to inherit polygon class to circle class - coz its not a polygon the (is a) principle/rule is not applicable 
 """
 
 
@@ -865,3 +871,47 @@ areaOfTr.set_value(30, 40)
 print(areaOfTr.areaOfTriangle())
 
 """ Module - what is Module -> is just a python file - we able to import and export python files/modules """
+""" Multiple Inheritance """
+
+# Super Functions - used to call our ParentClass whenever required in Multiple Inheritance, eg see below
+
+
+class Parent:
+    def __init__(self, name):
+        print("HIT PARENT INITIALIZATION")
+        print("The name is ", name)
+
+
+class Parent2:
+    def __init__(self, name):
+        print("HIT PARENT 2 INITIALIZATION")
+        print("The name is ", name)
+
+
+class Child(Parent, Parent2):
+    def __init__(self):
+        print("HIT CHILD INITIALIZATION")
+        # Parent.__init__(self, "Siddharth Abhimanyu")
+        super().__init__(
+            "Siddharth Abhimanyu"
+        )  # based on the sequnce in inherit class the super() takes control the Parent class's __init__(), here we pass Parent is 1st, so the super() takes Parent __init__(), for Parent2 we use the below method to get access __init__()
+        Parent2.__init__(self, "LEO")
+
+
+child = (
+    Child()
+)  # whhich __init__() gonna hit now ? , we gonna see Child __init__() method, its fine, but what if we need to access some attributes from parent __init__(), then how will you do that
+# two ways to do that, 1 is - Parent.__init__(self,"Siddharth Abhimanyu"), it hit the child __init__() first, then it the parent __init__() with respective parameters
+
+# 2 is using super function - super().__init__("Siddharth Abhimanyu"), whenever using super function no need to use self, this is how we utilize super()
+
+""" IMPORTANT NOTEE - one thing to remember - MRO = METHOD RESOLUTION ORDER"""
+print(Child.__mro__)
+# (<class '__main__.Child'>, <class '__main__.Parent'>, <class 'object'>) - first hit the child class then parent, then the instance
+# (<class '__main__.Child'>, <class '__main__.Parent'>, <class '__main__.Parent2'>, <class 'object'>) - with multiple inheritance - its based on whatever your inherit class sequence, which means this -> class Child(Parent, Parent2) - based on this the __mro__ order will be changes, if we change the order to -> class Child(Parent2, Parent1) - then the __mro__ result will be - (<class '__main__.Child'>, <class '__main__.Parent2'>, <class '__main__.Parent'>, <class 'object'>)
+
+# based on this inherit class sequence, the __mro_ will ordered, then based on order of __mro__, the __init__() method will be called
+
+# super() has two main features
+# 1 - allow us to avoid using base class explicitly
+# 2 - working with multiple inheritance
