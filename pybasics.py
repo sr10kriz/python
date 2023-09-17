@@ -642,14 +642,14 @@ print(var_t1)
 
 # Class - Blueprint or structure plan
 # Object - A member following same structure of Class
-# Encapsulation - to encapsulate data and methods together
+# Encapsulation - to encapsulate data and methods together, and protect them using private, public, protected methods to avoid unneccessary accidents, to protect data from some users
 # Abstraction - Only give neccessary details to the user, hiding background operations to the external world
 # Inheritance - we can inherit classes from base class, which means we can able to re-use code from base class to intermediate class to derived class
 # Polymorphism - poly- many, morphos - forms, Polymorphism is the ability of an object to take on many forms
 
 
 """ Class - in class we have attributes and methods """
-# all attributes will be out variables
+# all attributes will be our variables
 # all methods will be our functions/actions - note: whenever we use functions/actions in our class we denoted as methods
 
 
@@ -676,7 +676,7 @@ print(
 )
 suzukiDesire.getCar()
 
-suzukiCiaz = Car("Ciaz", "White", 400)  # this suzukiDesire is a instance of class
+suzukiCiaz = Car("Ciaz", "White", 400)  # this suzukiCiaz is a instance of class
 print(
     "The car name is {0} and my car color is {1} with the maxspeed of {2}".format(
         suzukiCiaz.name, suzukiCiaz.color, suzukiCiaz.maxspeed
@@ -754,3 +754,114 @@ studentTwo = Student(
 studentTwo.getStuPosition()
 
 # IMPORTANT note: a class have only one constructor function which means one __init__() method, if we use multiple then it will take last __init__() method only, the remaining methods are useless!
+
+
+# Encapsulation meaning we create restrictions for a particular attribute/methods, which means we prevent data from modify accidently
+# in python we dont use private, public, protected keyword instead we use __new_speed - start with double underscore means its a private attribute, then what is private attribute - which means only accessible under the class not accessible by outside of a class, i.e see below
+
+
+# here we see how to use private attributes in py
+class Speed:
+    def __init__(self):
+        self.speed = 80
+        self.__new_speed = 100  # its a private attribute, only accessible inside a class, not able to accessible by outside of a class
+        print(self.__new_speed, "I AM A PRIVATE ATTRIBUTE")
+
+    def get_speed(self):
+        return self.__new_speed  # here we use getter to get the private attribute
+
+    def set_speed(self, new_speed):
+        self.__new_speed = new_speed
+        # here we use setters to set new values to the attributes
+
+
+speed = Speed()
+print(speed.speed)
+# print(speed.__new_speed) # 'Speed' object has no attribute '__new_speed' - we got this error, here thats why we use getters and setters to get the values
+print(speed.get_speed())
+speed.set_speed(120)
+print(speed.get_speed())
+
+# lets have a look on conventions in py
+""" _x = 10 - which means _ single underscore denotes its, partially private, it accessible outside of the class also """
+""" __x = 10 - which means __ double underscore denotes its, completely private, it can't be accessible outside of the class """
+""" def __private_func() - its a private method, it can't be accessible outside of the class """
+
+
+# here we see how to use private methods in py
+class Test:
+    def __init__(self):
+        print("hit CONSTRUCTOR")
+        self.a = "A"  # its a public attribute
+        self._b = "B"  # its partially private attribute
+        self.__c = "C"  # its a private attribute
+
+    def public_method(self):  # its a public method
+        print("{0},{1},{2}".format(self.a, self._b, self.__c))
+        self.__private_method()
+
+    def __private_method(self):
+        # its a private method, it only accessible inside of a class
+        print("I AM PRIVATE METHOD")
+
+
+testIt = Test()
+testIt.public_method()
+# testIt.__private_method() # we got this error - 'Test' object has no attribute '__private_method'.
+# then how will access the private method, we use getters
+
+
+""" POP - Procedural Oriented Programming - which means writing code from scratch for every functions"""
+""" OOPS - Object Oriented Programming System - which means we re-use code for every functions and its features"""
+
+""" Inheritance - whenever we require same/similar functionality for a class's attributes/methods to another class we inherit a derived class from a base class with all the base class features means base class's attributes/methods
+real example: GrandFather -> Father -> Me -> MySon = your father acquire some attributes/behaviours from your grandparents, then you  acquire some attributes/methods from your parents, then yourson acquire some behaviours from you
+in programming terms see below 
+GrandFather - BaseClass/SuperClass
+Father - DerivedClass/SubClass/ChildClass (Derived From GrandFather)
+Me - DerivedClass/SubClass/ChildClass (Derived From Father - means Father is a base class of Me)
+MySon - DerivedClass/SubClass/ChildClass (Derived From Me - means Me is a base class of MySon)
+"""
+
+
+class Polygon:
+    __width = None
+    __height = None
+
+    # here we didn't use __init__(self) method - bcoz we didn't create any instance of a base class Polygon,
+    # whenever we use __private attributes, __private methods in a class, then we need to use getter and setters to get the attributes/methods accessible outside of a class
+
+    def set_value(self, width, height):
+        self.__width = width
+        self.__height = height
+
+    def get_width(self):
+        return self.__width
+
+    def get_height(self):
+        return self.__height
+
+
+class Square(Polygon):
+    # here Sqaure a derived/child class is derived from base/super class Polygon, here Square class able to use attributes/methods features of a Polygon class
+    def areaOfSquare(self):
+        return self.get_width() * self.get_height()
+
+
+areaOfSq = (
+    Square()
+)  # here I create a instance which means object for a class, that derived class Square is derived from base class Polygon
+areaOfSq.set_value(10, 40)
+print(areaOfSq.areaOfSquare())
+
+
+class Triangle(Polygon):
+    def areaOfTriangle(self):
+        return (self.get_width() * self.get_height()) * 1 / 2
+
+
+areaOfTr = Triangle()
+areaOfTr.set_value(30, 40)
+print(areaOfTr.areaOfTriangle())
+
+""" Module - what is Module -> is just a python file - we able to import and export python files/modules """
