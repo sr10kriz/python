@@ -873,6 +873,7 @@ print(areaOfTr.areaOfTriangle())
 """ Module - what is Module -> is just a python file - we able to import and export python files/modules """
 """ Multiple Inheritance """
 
+# SEE - /Inheritance/ - to See Modules & Inheritance in Action
 # Super Functions - used to call our ParentClass whenever required in Multiple Inheritance, eg see below
 
 
@@ -915,3 +916,218 @@ print(Child.__mro__)
 # super() has two main features
 # 1 - allow us to avoid using base class explicitly
 # 2 - working with multiple inheritance
+
+
+""" Composition - when two classes/entities are highly dependant on each other, we use (part of) association in composition
+Composition which has a relationship of (part of)
+eg: 1 - Salary is (part of) Employee
+        content is (part of) container, which means we put hightly dependant contents of a particular context, in a container, here Salary is a content and Employee is a container, its like a relatioships, 
+        content without container is useless i.e 1 - Employee without Salary, 2 - Library without Books, this is composition highly dependant on each other
+"""
+
+
+class Salary:
+    def __init__(self, pay, bonus):
+        self.pay = pay
+        self.bonus = bonus
+
+    def cumulative(self):
+        return self.pay * 12 + self.bonus
+
+
+class Employee:
+    def __init__(self, name, experience, pay, bonus):
+        self.name = name
+        self.experience = experience
+        self.consolidated = Salary(
+            pay, bonus
+        )  # IMPORTANT NOTEE: here we create instance self.consolidated, which means object of a Salary class and pass pay,bonus as a argument to self, now the self.consolidated is a object, whenver we create instance of a class which means object, then it hit the __init__() of a class and set the attrributes of a class
+
+    def final_Salary(self):
+        return (
+            self.consolidated.cumulative()
+        )  # here if you note with python intelesence near self. it shows only the available attributes/methods in Employee class, ---- after self.consolidated. then it will us full access to attributes and methods of Salary class
+
+
+# here its a composition, which means Salary is a content, Employee is a container, the Employee without salary is USELESS,
+# IMPORTANT NOTEE: the Employee class is dependant on the Salary class - this is what i meant composition is all about
+employee = Employee("LEO", 10, 1000000, 200000)
+print("COMPOSITION ANNUAL INCOME:", employee.final_Salary())
+
+
+""" Aggregation - which has a relationship of (has a) 
+eg - 1 - Bank has a Employee, 2 - Car has a Horn, Human has a Heart, we use has a relationships between classes/entities,
+IMPORTANT NOTEE: this relationships are uni-directional, which means one way relationships, which means not-dependant to each other
+"""
+
+
+class Salaryy:
+    def __init__(self, payy, bonuss):
+        self.payy = payy
+        self.bonuss = bonuss
+
+    def cumulativee(self):
+        return self.payy * 12 + self.bonuss
+
+
+class Employeee:
+    def __init__(self, namee, experiencee, salaryy):
+        self.namee = namee
+        self.experiencee = experiencee
+        self.salaryy = salaryy  # here self.salaryy exactly act like what we do in COMPOSITION, its a object, instance of a class Salary
+
+    def consolidatedd(self):
+        return self.salaryy.cumulativee()
+
+
+salaryy = Salaryy(1000000, 200000)
+employeee = Employeee("DAS", 10, salaryy)
+print("AGGREGATION ANNUAL INCOME:", employeee.consolidatedd())
+# here its a eg of AGGREGATION, two independent entities, but it has a (has a) relationship Employee (has a) Salary
+# IMPORTANT NOTEE about AGGREGATION is
+# 1 - we dont call our class inside another class, we just use their objects, its a UNION association
+# 2 - both the entities/class survive individually
+
+# OVERALL
+# Composition has a Strong Relationship/Connection, (part of) association, highly dependant on each other
+# Aggregation has a Weak Relationship/Connection, (has a) association, survive individually on their own
+
+""" Abstract Classes - its all about privacy of Parent Class, which means If we create Abstract Classes, it doesn't allow us to create instance for the parent class, and Methods & Attributes of Parent Class should be implemented in Sub-Classes,
+
+Two things to remember for Creating Abstract Classes
+1 - I dont want allow any users to create object for my parent class 
+2 - All the methods & Attributes that are present in Parent Class should be implemented in Child Class"""
+
+# def funtion_name():
+# pass # here this pass keyword - its a empty function its gonna return nothing
+
+
+class SuperClass:
+    def functionOne(self):
+        pass
+
+    def functionTwo(self):
+        pass
+
+
+class ChildClass(SuperClass):
+    def __init__(self, callSign):
+        self.callSign = callSign
+
+
+# childCl = ChildClass()
+# in this eg, we create a Parent Class and a Child Class (and the Child Class is inherited from Parent class), so if we use childCl.functionOne() or childCl.functionTwo() - we create a instance for ChildClass, and call use methods that are available in Parent Class, but the instance, it directly use the methods from Parent Class becoz we inherited the ChildClass from ParentClass,
+# here we want to implement those methods that are available in Parent Class should be implemented in subclasses which means Child Class, thats were Abstract Classes are come into play
+
+# SEE - /AbstractClasses/abstractClasses.py to see AbstractClasses in Action
+
+
+""" POLYMORPHISM - a object can have a ability to take many forms"""
+
+r = 1
+t = 2
+print(
+    r + t
+)  # addition, the operator turns into many forms based on the operands values
+
+y = "Lionel"
+u = "Messi"
+print(
+    y + u
+)  # concatenation, the operator turns into many forms based on the operands values
+
+i = [1, 2, 3]
+o = [4, 5, 6]
+print(
+    i + o
+)  # concatenation, the operator turns into many forms based on the operands values
+
+""" Operator Overloading - we override the operator for its functionality (eg) - see below """
+
+
+# class Soldiers:
+#     def __init__(self, numbers):
+#         self.numbers = numbers
+
+
+# fSol = Soldiers(200)
+# bSol = Soldiers(300)
+
+# print(fSol + bSol)  # we got the TypeError
+""" Traceback (most recent call last):
+  File "D:\py\basics\pybasics.py", line 1056, in <module>
+    print(fSol + bSol)  #
+          ~~~~~^~~~~~
+TypeError: unsupported operand type(s) for +: 'Soldiers' and 'Soldiers' """
+# here i try to add two objects/instance with + operator, we got the TypeError, here we need to override the functionality of a operator, thats where operator overloading comes into play
+
+
+class Soldiers:
+    def __init__(self, numbers):
+        self.numbers = numbers
+
+    def __add__(
+        self, bSol
+    ):  # this __add__() returns a new object with addition of two objects
+        # if the __add__() method called from fSol side - fSol.__add__(), then self is act for fSol.__add__(), and the bSol will be the second parameter, it act like vice-versa, if the __add__() method called from bSol side - bSol.__add__(), then self is act for bSol.__add__(), and the fSol will be the second parameter,
+        # for now fSol will be my self, bSol will be my second parameter
+        return self.numbers + bSol.numbers
+
+    def __mul__(self, bSol):  # for multiplication
+        return self.numbers * bSol.numbers
+
+    def __gt__(self, number):  # for greater than
+        return self.numbers > bSol.numbers
+
+
+fSol = Soldiers(200)
+bSol = Soldiers(300)
+
+# fSol.__add__(),
+# print(fSol + bSol), which object comes under 1st then all special functions will be written inside the respective class of a instance/object, else we got the TypeError
+
+print(
+    fSol + bSol
+)  # now whats gonna happen under the hood => fSol.__add__(bSol), which means fSol is our object and bSol is our parameter to __add__(bSol) method,
+# now the first object fSol in passed with the help self in __add__() method, and the second object bSol will be passed as bSol in __add__() method as a parameter
+
+# OVERALL - im actually overloading any operator for its functionality, that means im overloading a new functionality to a particular symbol/operator
+#  we can able override any symbol/operator or even comparison operators funtionalities with the help of special functions that are available - __functionname__()
+""" eg's for Special functions
+1 => a - b -> a.__sub__(b)
+2 => a * b -> a.__mul__(b)
+3 => a / b -> a.__truediv__(b)
+4 => a ** b -> a.__pow__(b)
+5 => a % b -> a.__mod__(b)
+need to check docs of  1 - OPERATOR OVERLOADING SPECIAL FUNCTIONS IN PYTHON, 2 - COMPARISON OPERATOR OVERLOADING IN PYTHON
+"""
+
+print(fSol * bSol)  # fSol.__mul__(bSol)
+print(fSol > bSol)  # fSol.__gt__(bSol) it returns either true or false
+
+
+class Python:
+    def __init__(self, pages):
+        self.pages = pages
+
+    def __add__(self, ja):
+        return self.pages + ja.pages
+
+    def __gt__(self, ja):
+        return self.pages > ja.pages
+
+    def __sub__(self, ja):
+        return self.pages - ja.pages
+
+
+class Java:
+    def __init__(self, pages):
+        self.pages = pages
+
+
+py = Python(500)
+ja = Java(300)
+
+print(py + ja)
+print(py > ja)
+print(py - ja)
