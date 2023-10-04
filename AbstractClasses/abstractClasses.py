@@ -31,7 +31,7 @@ class SuperClass(
 
 
 # OVERALL - we create a Abstract Class with Abstract Methods
-# from now on - functionOne(), functionTwo"() - its a mandatory, if someone creating a child class from this parent class(abstract class) they have define functionOne(), functionTwo() inside their class its mandatory
+# from now on - functionOne(), functionTwo"() - its a mandatory, if someone creating a child class from this parent class(abstract class) they have to define functionOne(), functionTwo() inside their class its mandatory
 
 # if not - we got the TypeError, whatever the abstract methods we created in our Abstract Class, we need define all the abstract methods in our inherited class, if one method is missing we got the TypeError which contains which method is can't instantiate
 

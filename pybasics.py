@@ -1,3 +1,5 @@
+import builtins
+
 """ this three quotation indicates multi-line docstring comments """
 # this # indicates single line comments
 """ 1 - Varibles & Memory Management in py """
@@ -1076,7 +1078,7 @@ class Soldiers:
     def __mul__(self, bSol):  # for multiplication
         return self.numbers * bSol.numbers
 
-    def __gt__(self, number):  # for greater than
+    def __gt__(self, bSol):  # for greater than
         return self.numbers > bSol.numbers
 
 
@@ -1131,3 +1133,66 @@ ja = Java(300)
 print(py + ja)
 print(py > ja)
 print(py - ja)
+
+# EXEPTION HANDLING - ERRORS IN PY
+# ERRORS - bugs that are not handled by a programmer, then we call it as ERROR
+# EXCEPTION - errors that are handled by a programmer, then we call it as EXCEPTION
+""" 1 - Compile-Time Error - its a syntax mistakes we made, the compiler while compiling it will throw a Error, compiler fail to compile, ie, 1- missing colon, 2 - missing keywords, 3 - missing intendation
+    2 - Run-Time Error - these errors is generated when the program is in running state, they are often termed as an Exception, these leads to program crashes and bugs in your code that hard to track down. i.e, 1 - Lack of memory, trying to open a file that was not created, division by 0
+    3 - Logical Error"""
+
+# NOTEE: in RunTime - we executed lines of code by one by one, but in CompileTime time that means we haven't execute any code we are just only compiling. eg -> see below
+
+# example = 1
+# print('BEFORE HIT THE IF')
+# if example == 1
+#     print('AFTER HIT THE IF')
+""" in this above line of code, we have a compilation error on if() statement, even the print() statement before the if() condition is not printed, becoz we are just compiling """
+
+# print("BEFORE HIT THE LEO DEF")
+
+
+# def concatee(m, n):
+#     print(m + n)
+
+
+# concatee("LEO", 1)
+""" here its a eg of Runtime error, we concate string and a integer, while runtime it will check code line by line so it will print the print() statement, and the throw a Runtime error """
+
+""" EXCEPTION - is a RunTime Error which can be handled by a Programmer """
+""" EXCEPTION HANDLING """
+# help(
+#     builtins
+# )  # help() is built-in function to get the documentation of specified modules,classes etc., builtins - list the EXCEPTOION CLASSES that are available in PY
+
+Result = None
+try:
+    m = int(input("give m: "))
+    n = int(input("give n: "))
+    Result = m / n
+except (
+    Exception
+) as E:  # here we use base Exception class, we may able to use specific Exception classes for handle different type of errors, using multiple except blocks
+    print(E)
+    print(type(E))
+
+print("AFTER EXCEPTION HANDLING BLOCK")
+print(Result)
+
+# try - run the code
+# except - execute the code when there is an error/exception
+# else - no exceptions? run this code
+# finally - always run this code
+
+# we may able to raise our own Exception at certain point of time - we use raise keyword to raise a Exception, we may able to raise different kind of Exception based on condition.
+# i.e, 1 - raise Exception, 2 - raise TypeError and so on...
+
+""" IMPORTANT NOTEE: every BaseException, and their SubExceptions in python are Classes, we denoted as BaseException Class, SubException Class """
+
+""" __name__ = a special keyword very usefull while we play with importing functions of modules, calling functions from another module """
+# if __name__ == "__main__" - understoood the usage, if you forget after sometime, need to take a look on udemy, the starting with double underscore __name__ and ending with double underscore, we denote as special methods or dunders in python - dunders means double underscore
+
+""" NEXT -> create, read, write a files, see filesInPy.py """
+
+# NEXT pip - is a package manager/package management system used to install and manage packages in python
+# to know more about packages in python - go python package index - https://pypi.org/
