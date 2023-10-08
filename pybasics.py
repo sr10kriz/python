@@ -1196,3 +1196,16 @@ print(Result)
 
 # NEXT pip - is a package manager/package management system used to install and manage packages in python
 # to know more about packages in python - go python package index - https://pypi.org/
+
+# Next Face Recognition using python - with the help of third party library (opencv - opensource computer vision library)
+# OpenCv is a opensource library and it mainly deal with computer vision, we use opencv python, which is a wrapper of original opencv that written in C++
+# It can process images and videos to identify objects, faces, or even the handwriting of a human.
+
+# See faceRecognition.py for ref
+
+# numpy is another package which really important to use along with opencv-python, its automatically installed while we installing opencv-python - numpy is deal with arrays along with opencv-python
+
+# steps need to follow while we work with opencv-python
+# 1 - pip install opencv-python
+# 2 - install numpy, which is automatically installed while we installing opencv-python
+# 3 - need to download Haar Cascade file, Haar Cascade file is a classifier which is used to detect particular objects from a source, means store all the informations about the object that we are going to detect, Haar Cascade file is only used for face detection, we have different classifiers based on our requirements, IMPORTANT NOTEE: Haar Cascade is only for face detection

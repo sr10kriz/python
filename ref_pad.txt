@@ -3,6 +3,8 @@ pip --version
 pip --help - get pip related commands
 pip search words_that_related_to_packagename - to search package name
 pip install package_name
+pip install package_name == specific version - to install specific version - i.e -> opencv-python 3.4.4.19
 pip uninstall package_name
 pip show exact_package_name - to check whether the package is installed or not
 pip list - to list all the installed packages
+python.exe -m pip install --upgrade pip - to upgrade pip 
