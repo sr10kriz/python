@@ -34,7 +34,7 @@ print(f)
 
 """ 1 - None """
 g = None
-""" is equals to null, cpaital N is mandatory one - None """
+""" is equals to null, capital N is mandatory one - None """
 print(g)
 
 """ 2 - Numerics & their types """
@@ -153,7 +153,7 @@ print(my_map[10])
 
 # syntaxes
 # None
-# x = 1, y = 0.5, complex(rea,value,imaginaryvalue), bool represents 1 - true, 0 - false
+# x = 1, y = 0.5, complex(realvalue,imaginaryvalue), bool represents 1 - true, 0 - false
 # z = 'messi', [1,2,3,4], (1,2,3,4), range(start,stop,step)
 # a = {1,2,3,4}
 # able to convert set to a tuple or list and also vice versa, able to convert tuple or list to set
@@ -171,7 +171,7 @@ m = 90
 
 """ i.e x + y - here x,y are operands and + is an operator, we provide literals to x and y identifiers """
 """ Operators and its types 
-        1 - Arithmetic (we perform operations) -> + (add), - (sub), * (mul), / (div) - it gives the division of two int literals in float lietal, % (modulus) - give you the remainder of division, // (quotient) - it gives floor value of division(int), ** (exponent) - it gives power root of given number ie. 2 ** 3 - 2 is a value, 3 is power (here is 2cube)
+        1 - Arithmetic (we perform operations) -> + (add), - (sub), * (mul), / (div) - it gives the division of two int literals in float literal, % (modulus) - give you the remainder of division, // (quotient) - it gives floor value of division(int), ** (exponent) - it gives power root of given number ie. 2 ** 3 - 2 is a value, 3 is power (here is 2cube)
         2 - Assignment (we assign literals to identifiers and perform operations using assignment operators) -> =, +=, -=, *=, /=, %=, //=, **=
         3 - Unary Minus -> - and + before we assign it to a variable it will convert this to negative or positive
         4 - Relational (we compare two identifiers) -> >, <, ==, !=, >=, <=
@@ -523,15 +523,16 @@ print(
 )  # if we use like this, it start the search from 0th index position (default), to the given index position
 print(
     qwer[:]
-)  # this will get the entire elements from a list, start, end, step all are gonna take defualt arguments, end argument is optional
+)  # this will get the entire elements from a list, start, end, step all are gonna take default arguments, end argument is optional
 print(qwer[::2])  # with step
 print(qwer[::3])  # with step
 
 # Slicing with Negative Indexing
 # take MESSI as eg
 
+""" 0  1  2  3  4  5 """ # positive index
 """ M  E  S  S  I  I """
-"""-6 -5 -4 -3 -2 -1 """
+"""-6 -5 -4 -3 -2 -1 """ # negative index
 # the above is the negative indexing looks like, its starts invertly from last with -1 as 1st index position, if we want reverse the result see below..
 og = "MESSII"
 print(
@@ -637,7 +638,7 @@ locV()
 
 print(g_v)
 print(var_t1)
-# print(var_t2)  - ameError: name 'var_t2' is not defined. Did you mean: 'var_t1'?
+# print(var_t2)  - nameError: name 'var_t2' is not defined. Did you mean: 'var_t1'?
 
 
 """ OOPS - Object Oriented Programming System """
