@@ -530,9 +530,9 @@ print(qwer[::3])  # with step
 # Slicing with Negative Indexing
 # take MESSI as eg
 
-""" 0  1  2  3  4  5 """ # positive index
+""" 0  1  2  3  4  5 """  # positive index
 """ M  E  S  S  I  I """
-"""-6 -5 -4 -3 -2 -1 """ # negative index
+"""-6 -5 -4 -3 -2 -1 """  # negative index
 # the above is the negative indexing looks like, its starts invertly from last with -1 as 1st index position, if we want reverse the result see below..
 og = "MESSII"
 print(
@@ -925,7 +925,7 @@ print(Child.__mro__)
 Composition which has a relationship of (part of)
 eg: 1 - Salary is (part of) Employee
         content is (part of) container, which means we put hightly dependant contents of a particular context, in a container, here Salary is a content and Employee is a container, its like a relatioships, 
-        content without container is useless i.e 1 - Employee without Salary, 2 - Library without Books, this is composition highly dependant on each other
+        container without content is useless i.e 1 - Employee without Salary, 2 - Library without Books, this is composition highly dependant on each other
 """
 
 

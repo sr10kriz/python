@@ -34,6 +34,10 @@ greyScaleImg = opencv.cvtColor(imgDimens, opencv.COLOR_BGR2GRAY)
 
 # 6th thing we need to detect different sizes of our image
 detectFaces = defineClassifier.detectMultiScale(greyScaleImg, 1.3, 5)
+# it will take three parameters,
+# 1 - grayscale image
+# 2 - scale factor (resizing command)
+# 3 - neighboring code
 
 # print(detectFaces)
 # sys.exit()
@@ -48,10 +52,6 @@ for x, y, w, h in detectFaces:
     # 4 - color of the image
     # 5 - then the width of the border
 
-# it will take three parameters,
-# 1 - grayscale image
-# 2 - scale factor (resizing command)
-# 3 - neighboring code
 
 # we will get the co-ordinates of our image in detectFaces, which means x,y,width & height
 
