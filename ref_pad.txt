@@ -15,6 +15,12 @@ https://warehouse.pypa.io/api-reference/xml-rpc.html#deprecated-methods
 
 django
 VE - Virtual Environment (Isolated Space)
+What is the use of virtualenv?
+
+::::VE is a tool used to create isolated Python environments. It creates a folder which contains all the necessary executables to use the packages that a Python project would need::::
+
+:::: This allows end-users to install and manage their own set of packages that are independent of those provided by the system or used by other projects::::
+
 1 - create a project folder whereever you want
 2 - you need to create VE for your project. why VE ? = it will give us isolated space for our django project and avoid packages that defaultly manually installed by us that comes under python, it will efficiently load our required or installed packages in our django project - exactly means neccessary packages we may able to install it under our django VE, so dont need to use already installed packages for python..., another benefit of VE is control different version projects easily - need to google it...
 3 - how we create VE - python -m venv name of your environment i.e - if you have todoList django project then name it as = tdlenv
@@ -22,3 +28,4 @@ VE - Virtual Environment (Isolated Space)
 5 - pip freeze to see packages that comes under our new django project
 6 - if you want to deactivate your VE - simply use - deactivate command
 7 - after successfully created VE - then we need to install django use - pip install django in inside of the VE, after installation of use pip freeze to see what packages that the VE is currently have under our django project, once deactivate the VE check pip freeze to see all packages that you have installed under python
+8 - to remove VE - 1) deactivate, 2) rm -rf <env path>
