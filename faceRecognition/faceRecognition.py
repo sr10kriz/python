@@ -6,7 +6,7 @@ import sys
 defineClassifier = opencv.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 # third thing we need use our image
-img = opencv.VideoCapture("img/download1.jpg")
+img = opencv.VideoCapture("img/images3.jpg")
 
 # print(img)
 # sys.exit()

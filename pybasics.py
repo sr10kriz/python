@@ -958,8 +958,9 @@ employee = Employee("LEO", 10, 1000000, 200000)
 print("COMPOSITION ANNUAL INCOME:", employee.final_Salary())
 
 
+
 """ Aggregation - which has a relationship of (has a) 
-eg - 1 - Bank has a Employee, 2 - Car has a Horn, Human has a Heart, we use has a relationships between classes/entities,
+eg - 1 - Bank has a Employee, 2 - Car has a Horn, we use has a relationships between classes/entities,
 IMPORTANT NOTEE: this relationships are uni-directional, which means one way relationships, which means not-dependant to each other
 """
 
@@ -994,6 +995,7 @@ print("AGGREGATION ANNUAL INCOME:", employeee.consolidatedd())
 # OVERALL
 # Composition has a Strong Relationship/Connection, (part of) association, highly dependant on each other
 # Aggregation has a Weak Relationship/Connection, (has a) association, survive individually on their own
+# Aggregation over Composition - y? because if we delete obj of child class which is dependant on parent class then the parent class obj which we initialized will also be deleted in parent class coz, its completely dependant on each other - its composition, on the other hand Aggregation is completely independant on each other so will survive individually without the other...
 
 """ Abstract Classes - its all about privacy of Parent Class, which means If we create Abstract Classes, it doesn't allow us to create instance for the parent class, and Methods & Attributes of Parent Class should be implemented in Sub-Classes,
 
@@ -1044,6 +1046,77 @@ o = [4, 5, 6]
 print(
     i + o
 )  # concatenation, the operator turns into many forms based on the operands values
+
+# Polymorphism is often used in Class methods, where we can have multiple classes with the same method name.
+
+# For example, say we have three classes: Car, Boat, and Plane, and they all have a method called move() see below
+class Car:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Drive!")
+
+class Boat:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Sail!")
+
+class Plane:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Fly!")
+
+car1 = Car("Ford", "Mustang")       #Create a Car class
+boat1 = Boat("Ibiza", "Touring 20") #Create a Boat class
+plane1 = Plane("Boeing", "747")     #Create a Plane class
+
+for x in (car1, boat1, plane1):
+  x.move()
+  
+# Inheritance Polymorphism
+class Vehicle:
+  def __init__(self, brand, model):
+    self.brand = brand
+    self.model = model
+
+  def move(self):
+    print("Move!")
+
+class Car(Vehicle):
+  pass
+
+class Boat(Vehicle):
+  def move(self):
+    print("Sail!")
+
+class Plane(Vehicle):
+  def move(self):
+    print("Fly!")
+
+car1 = Car("Ford", "Mustang") #Create a Car object
+boat1 = Boat("Ibiza", "Touring 20") #Create a Boat object
+plane1 = Plane("Boeing", "747") #Create a Plane object
+
+for x in (car1, boat1, plane1):
+  print(x.brand)
+  print(x.model)
+  x.move()
+  
+# Child classes inherits the properties and methods from the parent class.
+
+# In the example above you can see that the Car class is empty, but it inherits brand, model, and move() from Vehicle.
+
+# The Boat and Plane classes also inherit brand, model, and move() from Vehicle, but they both override the move() method.
+
+# Because of polymorphism we can execute the same method for all classes. see above
 
 """ Operator Overloading - we override the operator for its functionality (eg) - see below """
 
