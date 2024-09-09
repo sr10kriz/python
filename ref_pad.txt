@@ -1,4 +1,5 @@
 
+pip - preferred installer program or pip install packages - its an command line utility to manage and and install python packages or modules
 pip --version 
 pip --help - get pip related commands
 pip search words_that_related_to_packagename - to search package name
