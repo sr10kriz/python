@@ -1,3 +1,15 @@
+# intro to python
+""" 
+    - high-level, interpreted, general-purpose programming language
+    - used in web development, automation, data science, AI, scripting, game development and more...
+    - easy to learn (clean syntax)
+    - interpreted (runs line by line, no need to compile)
+    - dynamically typed, no need to declare variable types
+    - support OOPS
+    - for web apps use python framework Django
+
+"""
+
 import builtins
 
 """ this three quotation indicates multi-line docstring comments """
@@ -24,7 +36,7 @@ print(f)
 
 """ 2 - Datatypes in py => 1 - pre-defined/built-in datatypes, 2 - user-defined datatypes """
 """ we often use built-in datatypes, unless if you jumping to algorithm/data structures then we use user-defined datatypes """
-""" now 5 types of datatypes in built-in datatypes,
+""" there are 5 types in built-in datatypes,
     1 - None - nothing other but null in other launguages
     2 - Numeric - under we split into four, 1- Int, 2 - Float, 3 - Complex, 4 - Bool
     3 - sequences - under we split into four, 1 - String, 2 - List, 3 - Tuple, 4 - Range
@@ -49,12 +61,13 @@ print(type(i))
 
 """ complex """
 j = complex(4, 5 > 12)
-""" it accepts two argument, 1st is real value, 2nd is imaginary value. Note: if you pass string as a 1st argument then the 2nd argument cant be accepted, it provides this error => TypeError: complex() can't take second arg if first is a string, it accepts int, float, string as well as boolean as an argument """
+""" it accepts two argument, 1st is real value, 2nd is imaginary value. Note: if you pass string as a 1st argument then the 2nd argument cant be accepted, it provides this error => TypeError: complex() can't take second arg if first is a string, it accepts int, float, string as well as boolean as an argument, to access real value j.real, to get imaginary value j.imag """
 print(j)
 print(type(j))
 
+
 k = 10 > 1
-""" in python we say boolean as bool -> true represents 1, false represents 0 """
+""" in python we say boolean as bool -> true represents 1, false represents 0 same like any other languages """
 print(k)
 print(type(k))
 
@@ -141,7 +154,7 @@ print(con_set_tup)
 print(type(con_set_tup))
 
 """ Mapping / Dictionaries - ordered, mutable, doesn't allow duplicates """
-""" Dictianaries are similar to objects, in other words u can imagine a real dictonary, key value pairs like Why:why are you late? - this is key value pair - why is term key, then the value and inportant note dictionaries can't allow duplicates """
+""" Dictianaries are similar to objects, in other words u can imagine a real dictonary, key value pairs like Why:why are you late? - this is key value pair - why is term key, then the value and important note dictionaries can't allow duplicates """
 """ syntax - {10:'Messi',7:'Ronaldo'} """
 my_map = {10: "Messi", 7: "Ronaldo", 8: "Iniesta"}
 print(my_map)
@@ -156,6 +169,7 @@ print(my_map[10])
 # x = 1, y = 0.5, complex(realvalue,imaginaryvalue), bool represents 1 - true, 0 - false
 # z = 'messi', [1,2,3,4], (1,2,3,4), range(start,stop,step)
 # a = {1,2,3,4}
+# d = {10:"messi", 11:"neymar"}
 # able to convert set to a tuple or list and also vice versa, able to convert tuple or list to set
 
 """ 3 - Literals and Identifiers """
@@ -185,10 +199,10 @@ m = 90
 
 """ Unary minus """
 n = 30
-print(-n)
+print(-n) # return negative
 print(n)
 o = -20
-print(-o)
+print(-o) # return positive
 """ in the end it gives the result of positive literal, which means - into - + thats y we get the positive result, same applicable in vice versa """
 
 
@@ -256,6 +270,36 @@ print(
 )
 
 """ 8 Built-in functions & modules need to check in documentation """
+""" 
+    # these are built-in functions, you can without importing any module
+    print()
+    input()
+    len()
+    type()
+    id()
+    int(), float(), str()
+    range()
+    max(), min()
+    sum() - returns sum of a list or tuple
+    sorted() - returns sorted list
+    abs() - returns absolute value
+    round() - rounds a number
+    enunmerate() - addds index while iterating
+    zip() - combine two or more iterables
+    isinstance() - checks if an object is specified type
+    
+    # these are built-in modules, you must import before using it
+    math - math functions like sqrt, sin, pi etc..
+    random - generate random numbers
+    datetime - handle dates and time
+    os - interact with operating system
+    sys - access system specific parameters
+    json - work with json data
+    re - regular expressions
+    time - time related functions
+    statistics - mean, median, mode
+    platform - info abt platform / os
+"""
 
 """ 9 if...elif...else """
 jerseyNum = 10
@@ -299,7 +343,7 @@ else:
     print("Retake assesment")
 
 
-""" Loops """
+""" Loops (note: no native support for do-while loop in python, we can achieve this by while condition == True, for the first it always runs), then we manually use the break; if condition not met """
 
 # While
 startP = 10000
@@ -308,13 +352,14 @@ while startP < 10010:
     startP += 1
 else:
     print("End")
-# in python a else block also possible, whether the condition fails then fall under else block
+# in python a else block also possible, whether the condition fails then fall-back to else block
+# and one more thing to consider, else block only runs if loop is not terminated by break;
 
 # in keyword in python - to check some values are available in some variable i.e below
 A = {1, 2, 3, 4, 5}
 print(5 in A)
 
-# For - we can list, tuples, range, dictionary in for loops - any iterable object
+# For - we can use list, tuples, range, dictionary in for loops - any iterable object
 for i in A:
     print(i)
 
@@ -577,7 +622,7 @@ def keyA(item, price):
 keyA(item="Beetroot", price=30)
 
 
-# default argument - in default arguments if we pass arguments then it will take the proivded value, else if we dont pass value it will take the default argument as a value to the particular parameter
+# default argument - in default arguments if we pass arguments then it will take the provided value, else if we dont pass value it will take the default argument as a value to the particular parameter
 def defA(item, price=20):
     print("item", item)
     print("value", price)
