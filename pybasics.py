@@ -126,7 +126,10 @@ my_list_range_dir = list(range(10, 25, 2))
 print(my_list_range_dir)
 
 """ 4 - Sets - unordered, mutable, doesn't allow duplicates """
-""" sets is a unordered collection of elements, syntax {1, 20, 23, 232} """
+""" 
+    - sets is a unordered collection of elements, syntax {1, 20, 23, 232}
+    - sets doesn't support indexing or slicing
+"""
 my_set = {1, 5, 0, 90, 456}
 print(my_set)
 """ the print show result like this {0, 1, 5, 456, 90}, thats y its called as unordered collection of elements, u cant access the element of a set like this my_set[1] like this, becoz its an unordered collection of elements, if we do we got the error - 'set' object is not subscriptable """
@@ -193,8 +196,8 @@ m = 90
         6 - Boolean -> True, False
 
         note : = is used to assign a value
-               == is used to compare two values
-               === is used to compare two value and also checks whether the two datatypes are same
+               == is used to compare two values (loose equality)
+               === is used to compare two value and also checks whether the two datatypes are same (strict equality)
 """
 
 """ Unary minus """
@@ -271,7 +274,7 @@ print(
 
 """ 8 Built-in functions & modules need to check in documentation """
 """ 
-    # these are built-in functions, you can without importing any module
+    # these are built-in functions, you can use without importing any module
     print()
     input()
     len()
@@ -287,6 +290,7 @@ print(
     enunmerate() - addds index while iterating
     zip() - combine two or more iterables
     isinstance() - checks if an object is specified type
+    help(module_name) - to get the documentation of specified modules, classes, module_name(parameter) - eg: help(sys)
     
     # these are built-in modules, you must import before using it
     math - math functions like sqrt, sin, pi etc..
@@ -299,6 +303,7 @@ print(
     time - time related functions
     statistics - mean, median, mode
     platform - info abt platform / os
+    builtins - list all the exception classes that are available in python
 """
 
 """ 9 if...elif...else """
@@ -1313,8 +1318,40 @@ print(Result)
 
 """ NEXT -> create, read, write a files, see filesInPy.py """
 
-# NEXT pip - is a package manager/package management system used to install and manage packages in python
+# NEXT pip - is a package manager/package management system used to install/manage/update packages/libraries and frameworks from the Python Package Index (PyPI)
+# pip - Pip install
 # to know more about packages in python - go python package index - https://pypi.org/
+
+""" basic pip commands
+    - pip -version - to check pip installed or not
+    - pip install package_name - to install a package
+    - pip uninstall package_name - to uninstall a package
+    - pip list - to list all the packages
+    - pip show package_name - to show the details of package name
+    - pip freeze > requirements.txt - this will create requirements.txt file with installed libraries(neccessary libraries) with version (kindof a readme.md file)
+    - pip install -r requirements.txt - to install all the nneccessary libraries from requirements.txt
+    - pip install -upgrade pip - to upgrade pip itself
+    - always use venv (which virtual environment) before installing packages/libraries to keep your project isolated
+"""
+
+""" Virtual Env (venv) 
+    - its a isolated python environment
+    - you can install dependancies from project for different versions without conflicting each other
+    - to create venv: python -m venv virtual_env_name (eg: proj-messi)
+    - then the below structure will be created:
+        proj-messi/
+        ├── Scripts/
+        │   ├── activate.bat
+        │   ├── python.exe
+        │   └── pip.exe
+        ├── Lib/
+        └── pyvenv.cfg
+    - always add venv (virtual environments to the .gitignore file)
+    - step1 (create venv): python -m venv proj-messi
+    - step2 (activate venv): source proj-messi/bin/activate
+    - step3 (install requried dependancies): pip install django djangorestframework etc... 
+
+"""
 
 # Next Face Recognition using python - with the help of third party library (opencv - opensource computer vision library)
 # OpenCv is a opensource library and it mainly deal with computer vision, we use opencv python, which is a wrapper of original opencv that written in C++

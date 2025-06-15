@@ -15,7 +15,7 @@ with open("secondFile.txt", "w") as secondFile:
 
 # to append a file
 with open("firstFile.txt", "a") as firstFile:  # this firstFile act as a filehandler
-    firstFile.write("\n This is my Second Line. Prepare for the Revenge...")
+    firstFile.write("\n This is my Second Line. Preparing...")
 
 with open("secondFile.txt", "a") as secondFile:  # this secondFile act as a filehandler
     secondFile.write("\n This is my Second Line. Lets clean the messs!!!")
